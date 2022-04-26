@@ -17,14 +17,14 @@ Console.WriteLine("Here is our menu:");
 for(int i = 0; i < 3; i++) {
     Console.WriteLine($"{menu[i]}   {prices[i]}kr");
 }
-Console.WriteLine(">------------------------<");
 
 while (done == false) {
     //Pancakes
     int pancakeAmount = 0;
     bool pancakeAmountBool = false;
-    
+
     while (pancakeAmountBool == false || pancakeAmount < 1 || pancakeAmount > 5) {
+        Console.WriteLine(">------------------------<");
         Console.WriteLine("You can only get between 1 and 5 pancakes.");
         Console.WriteLine("How many do you want?");
         pancakeAmountBool = int.TryParse(Console.ReadLine(), out pancakeAmount);
@@ -36,7 +36,7 @@ while (done == false) {
     TotalPrice += pricePerPortion(pancakeAmount, Jam, Cream, PancakePrice, JamPrice, CreamPrice);
 
     Console.WriteLine("Do you want another portion?");
-    Console.WriteLine("If you don't write yes I will assume you are done");
+    Console.WriteLine("If you write anything except for yes I'll assume you're done");
     string morePortion = Console.ReadLine();
     
     if (morePortion == "yes" || morePortion == "Yes") {
