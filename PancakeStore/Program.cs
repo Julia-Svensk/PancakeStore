@@ -10,8 +10,8 @@ int TotalPrice = 0;
 string[] menu = {"Pancakes", "Jam", "Whipped cream"};
 int[] prices = {PancakePrice, JamPrice, CreamPrice};
 
-Console.WriteLine("Welcomet to our pancake shop!");
-Console.WriteLine("Here is our menu:");
+Console.WriteLine("Welcome to our pancake shop!");
+Console.WriteLine("Here's our menu:");
 
 //Prints menu
 for(int i = 0; i < 3; i++) {
@@ -26,7 +26,7 @@ while (done == false) {
     Console.WriteLine(">------------------------<");
 
     while (pancakeAmountBool == false || pancakeAmount < 1 || pancakeAmount > 5) {
-        Console.WriteLine("You can only get between 1 and 5 pancakes.");
+        Console.WriteLine("We offer between 1 and 5 pancakes. PLease choose an amount within that range.");
         Console.WriteLine("How many do you want?");
         pancakeAmountBool = int.TryParse(Console.ReadLine(), out pancakeAmount);
     }
