@@ -23,8 +23,9 @@ while (done == false) {
     int pancakeAmount = 0;
     bool pancakeAmountBool = false;
 
+    Console.WriteLine(">------------------------<");
+
     while (pancakeAmountBool == false || pancakeAmount < 1 || pancakeAmount > 5) {
-        Console.WriteLine(">------------------------<");
         Console.WriteLine("You can only get between 1 and 5 pancakes.");
         Console.WriteLine("How many do you want?");
         pancakeAmountBool = int.TryParse(Console.ReadLine(), out pancakeAmount);
