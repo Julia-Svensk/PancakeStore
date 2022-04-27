@@ -2,13 +2,13 @@
 
 bool done = false;
 
-int PancakePrice = 50;
-int JamPrice = 15;
-int CreamPrice = 10;
-int TotalPrice = 0;
+int pancakePrice = 50;
+int jamPrice = 15;
+int creamPrice = 10;
+int totalPrice = 0;
 
 string[] menu = {"Pancakes", "Jam", "Whipped cream"};
-int[] prices = {PancakePrice, JamPrice, CreamPrice};
+int[] prices = {pancakePrice, jamPrice, creamPrice};
 
 Console.WriteLine("Welcome to our pancake shop!");
 Console.WriteLine("Here's our menu:");
@@ -31,10 +31,10 @@ while (done == false) {
         pancakeAmountBool = int.TryParse(Console.ReadLine(), out pancakeAmount);
     }
     
-    bool Jam = itemRequest("jam");
-    bool Cream = itemRequest("whipped cream");
+    bool jam = Itemrequest("jam");
+    bool cream = Itemrequest("whipped cream");
 
-    TotalPrice += pricePerPortion(pancakeAmount, Jam, Cream, PancakePrice, JamPrice, CreamPrice);
+    totalPrice += PricePerPortion(pancakeAmount, jam, cream, pancakePrice, jamPrice, creamPrice);
 
     Console.WriteLine("Do you want another portion?");
     Console.WriteLine("If you write anything except for yes I'll assume you're done");
@@ -48,28 +48,28 @@ while (done == false) {
 }
 
 Console.WriteLine("Thank you for coming!");
-Console.WriteLine($"In total your order costs {TotalPrice}kr.");
+Console.WriteLine($"In total your order costs {totalPrice}kr.");
 Console.ReadLine();
 
 
 // -------------------------------------------------------------------------------------------------------------------------- //
 
 
-//Jam & Cream
-static bool itemRequest(string item) {
-    bool AnswerBool = false;
+//jam & cream
+static bool Itemrequest(string item) {
+    bool answerBool = false;
     bool wantItem = false;
  
-    while (AnswerBool == false) {
+    while (answerBool == false) {
         Console.WriteLine($"Do you want {item} on your pancakes?");
-        string Answer = Console.ReadLine();
+        string answer = Console.ReadLine();
  
-        if (Answer == "yes" || Answer == "Yes") {
-            AnswerBool = true;
+        if (answer == "yes" || answer == "Yes") {
+            answerBool = true;
             wantItem = true;
         } 
-        else if (Answer == "no" || Answer == "No") {
-            AnswerBool = true;
+        else if (answer == "no" || answer == "No") {
+            answerBool = true;
             wantItem = false;
         }
         else
@@ -84,25 +84,25 @@ static bool itemRequest(string item) {
 //-----------------------------------------------------------------------------------------------------------//
 
 //Price calculator
-static int pricePerPortion(int pancake, bool jam, bool cream, int PancakePrice, int JamPrice, int CreamPrice) {
+static int PricePerPortion(int pancake, bool jam, bool cream, int pancakePrice, int jamPrice, int creamPrice) {
     int jamCost;
     int creamCost;
 
     if (jam == true) {
-        jamCost = JamPrice;
+        jamCost = jamPrice;
     }
     else {
         jamCost = 0;
     }
  
     if (cream == true) {
-        creamCost = CreamPrice;
+        creamCost = creamPrice;
     }
     else {
         creamCost = 0;
     }
  
-    int price = PancakePrice * pancake + jamCost + creamCost;
+    int price = pancakePrice * pancake + jamCost + creamCost;
  
     Console.WriteLine($"This portion will cost {price}kr.");;
     return price;
